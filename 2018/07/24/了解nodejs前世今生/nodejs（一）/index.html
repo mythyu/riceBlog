@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="一、nodejs基本操作1、通过官网安装包2、通过nvm安装nvm GitHub下载地址安装过程有事是非常坎坷的，大神nodejs和nvm拍坑安装流程 Nvm的命令12345nvm list available #查看官网上所有的node版本nvm install 6.14.2  #6.14.2版本号，安装指定版本nvm use 6.14.2  #切换6点版本号nvm list  #查看本机安装点">
+<meta name="description" content="一、nodejs基本操作1、通过官网安装包2、通过nvm安装nvm GitHub下载地址安装过程有事是非常坎坷的，大神nodejs和nvm拍坑安装流程 Nvm的命令12345nvm list available # nvm install 6.14.2  #6.14.2版本号，安装指定版本nvm use 6.14.2  #切换6点版本号nvm list  #查看本机安装点所有node版本号nvm">
 <meta name="keywords" content="node">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Buffer模块">
+<meta property="og:title" content="Buffer模块（一）">
 <meta property="og:url" content="http://yoursite.com/2018/07/24/了解nodejs前世今生/nodejs（一）/index.html">
 <meta property="og:site_name" content="riceCK">
-<meta property="og:description" content="一、nodejs基本操作1、通过官网安装包2、通过nvm安装nvm GitHub下载地址安装过程有事是非常坎坷的，大神nodejs和nvm拍坑安装流程 Nvm的命令12345nvm list available #查看官网上所有的node版本nvm install 6.14.2  #6.14.2版本号，安装指定版本nvm use 6.14.2  #切换6点版本号nvm list  #查看本机安装点">
+<meta property="og:description" content="一、nodejs基本操作1、通过官网安装包2、通过nvm安装nvm GitHub下载地址安装过程有事是非常坎坷的，大神nodejs和nvm拍坑安装流程 Nvm的命令12345nvm list available # nvm install 6.14.2  #6.14.2版本号，安装指定版本nvm use 6.14.2  #切换6点版本号nvm list  #查看本机安装点所有node版本号nvm">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-07T11:47:17.309Z">
+<meta property="og:updated_time" content="2018-11-18T12:19:39.307Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Buffer模块">
-<meta name="twitter:description" content="一、nodejs基本操作1、通过官网安装包2、通过nvm安装nvm GitHub下载地址安装过程有事是非常坎坷的，大神nodejs和nvm拍坑安装流程 Nvm的命令12345nvm list available #查看官网上所有的node版本nvm install 6.14.2  #6.14.2版本号，安装指定版本nvm use 6.14.2  #切换6点版本号nvm list  #查看本机安装点">
+<meta name="twitter:title" content="Buffer模块（一）">
+<meta name="twitter:description" content="一、nodejs基本操作1、通过官网安装包2、通过nvm安装nvm GitHub下载地址安装过程有事是非常坎坷的，大神nodejs和nvm拍坑安装流程 Nvm的命令12345nvm list available # nvm install 6.14.2  #6.14.2版本号，安装指定版本nvm use 6.14.2  #切换6点版本号nvm list  #查看本机安装点所有node版本号nvm">
 
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>Buffer模块 | riceCK</title>
+  <title>Buffer模块（一） | riceCK</title>
   
 
 
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Buffer模块</h1>
+          <h1 class="post-title" itemprop="name headline">Buffer模块（一）</h1>
         
 
         <div class="post-meta">
@@ -344,7 +344,7 @@
 
       
         <h1 id="一、nodejs基本操作"><a href="#一、nodejs基本操作" class="headerlink" title="一、nodejs基本操作"></a>一、nodejs基本操作</h1><h2 id="1、通过官网安装包"><a href="#1、通过官网安装包" class="headerlink" title="1、通过官网安装包"></a>1、通过官网安装包</h2><h2 id="2、通过nvm安装"><a href="#2、通过nvm安装" class="headerlink" title="2、通过nvm安装"></a>2、通过nvm安装</h2><p><a href="https://github.com/coreybutler/nvm-windows/releases" target="_blank" rel="noopener">nvm GitHub下载地址</a><br>安装过程有事是非常坎坷的，<a href="https://www.cnblogs.com/qiu-freedom/p/8871793.html" target="_blank" rel="noopener">大神nodejs和nvm拍坑安装流程</a></p>
-<h3 id="Nvm的命令"><a href="#Nvm的命令" class="headerlink" title="Nvm的命令"></a>Nvm的命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">nvm list available <span class="comment">#查看官网上所有的node版本</span></span><br><span class="line">nvm install 6.14.2  <span class="comment">#6.14.2版本号，安装指定版本</span></span><br><span class="line">nvm use 6.14.2  <span class="comment">#切换6点版本号</span></span><br><span class="line">nvm list  <span class="comment">#查看本机安装点所有node版本号</span></span><br><span class="line">nvm uninstall 6.14.2  <span class="comment">#删除6点的版本号</span></span><br></pre></td></tr></table></figure>
+<h3 id="Nvm的命令"><a href="#Nvm的命令" class="headerlink" title="Nvm的命令"></a>Nvm的命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">nvm list available <span class="comment"># </span></span><br><span class="line">nvm install 6.14.2  <span class="comment">#6.14.2版本号，安装指定版本</span></span><br><span class="line">nvm use 6.14.2  <span class="comment">#切换6点版本号</span></span><br><span class="line">nvm list  <span class="comment">#查看本机安装点所有node版本号</span></span><br><span class="line">nvm uninstall 6.14.2  <span class="comment">#删除6点的版本号</span></span><br></pre></td></tr></table></figure>
 <h2 id="3、模块"><a href="#3、模块" class="headerlink" title="3、模块"></a>3、模块</h2><p>AMD、CMD、CommonJS</p>
 <h3 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h3><ul>
 <li>一个文件就是一个模块</li>
@@ -375,7 +375,7 @@
 </ul>
 <h3 id="实例简单运用"><a href="#实例简单运用" class="headerlink" title="实例简单运用"></a>实例简单运用</h3><h4 id="iconvlit插件的方法利用"><a href="#iconvlit插件的方法利用" class="headerlink" title="iconvlit插件的方法利用"></a>iconvlit插件的方法利用</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> http = require(<span class="string">'http'</span>)</span><br><span class="line"><span class="built_in">let</span> iconv = require(<span class="string">'iconv-lite'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">let</span> str = <span class="string">"大家好"</span></span><br><span class="line"><span class="built_in">let</span> strGgb = iconv.encode(str,<span class="string">"gbk"</span>) <span class="comment"># 将str编译成gbk格式</span></span><br><span class="line">console.log(iconv.decode(strGgb,<span class="string">'gbk'</span>).toString); <span class="comment"># 将gbk格式解码成utf8码</span></span><br><span class="line">console.log(iconv.encodingExists(<span class="string">"utf8"</span>)) <span class="comment"># 判断插件iconv检查是否支持编码</span></span><br></pre></td></tr></table></figure>
 <h4 id="类方法：Buffer-alloc-size-fill-encoding"><a href="#类方法：Buffer-alloc-size-fill-encoding" class="headerlink" title="类方法：Buffer.alloc(size[, fill[, encoding]])"></a>类方法：Buffer.alloc(size[, fill[, encoding]])</h4><p><strong>const buf = Buffer.alloc(11, ‘hello world’, ‘utf-8’)</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> http = require(<span class="string">'http'</span>)</span><br><span class="line"><span class="built_in">let</span> iconv = require(<span class="string">'iconv-lite'</span>)</span><br><span class="line"><span class="comment">#  let buffer = new Buffer(18)  已废弃</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 1个二进制 = 1bit</span></span><br><span class="line"><span class="comment"># 8个二进制数 = 1bytes(1b)</span></span><br><span class="line"><span class="comment"># b -&gt; kb -&gt; Gb-&gt; Tb -&gt; Eb -&gt; Pb -&gt; Zb</span></span><br><span class="line"><span class="comment"># buffer的定义赋值</span></span><br><span class="line"><span class="built_in">let</span> buffer = Buffer.alloc(10)  <span class="comment"># buffer初始化</span></span><br><span class="line">buffer[0] = 1;  <span class="comment">#十进制</span></span><br><span class="line">buffer[1] = 15;</span><br><span class="line">buffer[2] = 255;</span><br><span class="line">buffer[3] = 0xaa <span class="comment">#十六进制</span></span><br><span class="line">buffer[4] = 0x41 <span class="comment">#字符串"A"</span></span><br><span class="line">console.log(buffer) <span class="comment"># =&gt; &lt;Buffer 01 0f ff aa A 00 00 00 00 00&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># buffer编码输出类型，默认都输十进制</span></span><br><span class="line"><span class="built_in">let</span> buffer = Buffer.alloc(10)</span><br><span class="line">buffer[0] = 0xa</span><br><span class="line">console.log(buffer) <span class="comment"># =&gt; &lt;Buffer 0a 00 00 00 00 00 00 00 00 00&gt; 十六进制存储</span></span><br><span class="line">console.log(buffer[0].toString())    <span class="comment">#=&gt; 10 二进制输出</span></span><br><span class="line">console.log(buffer[0].toString(16))  <span class="comment"># =&gt; a 十六进制输出</span></span><br><span class="line">```                                                                                         </span><br><span class="line"></span><br><span class="line"><span class="comment">#### let buffer = Buffer.from("大家好")    </span></span><br><span class="line">```bash</span><br><span class="line"><span class="comment"># 这里编码三个中文字符变成9个字符这个是utf8的正常3字节转换中文，一般看到的两字节转换中文字符的是gbk国标编码格式</span></span><br><span class="line"><span class="built_in">let</span> buffer = Buffer.from(<span class="string">"大家好"</span>)</span><br><span class="line">console.log(buffer); <span class="comment"># =&gt; &lt;Buffer e5 a4 a7 e5 ae b6 e5 a5 bd&gt;</span></span><br><span class="line">console.log(buffer.toString()) <span class="comment"># =&gt; 大家好 =&gt; toString是把二进制转换成urf8</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="let-buffer-Buffer-allocUnsafe-10"><a href="#let-buffer-Buffer-allocUnsafe-10" class="headerlink" title="let buffer = Buffer.allocUnsafe(10)"></a>let buffer = Buffer.allocUnsafe(10)</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> buffer = Buffer.allocUnsafe(10)  </span><br><span class="line"><span class="comment"># 创建buffer但是并没有初始化，内部有值占用</span></span><br><span class="line">console.log(buffer)   <span class="comment"># &lt;Buffer 88 69 8a 8f 65 00 00 00 e8 69&gt;</span></span><br><span class="line">buffer.fill(0)   <span class="comment"># 相当于初始化，用零填充</span></span><br><span class="line">console.log(buffer)   <span class="comment"># &lt;Buffer 00 00 00 00 00 00 00 00 00 00&gt;</span></span><br><span class="line">```                                                                                                                  </span><br><span class="line"><span class="comment">## 写入Buffer</span></span><br><span class="line"><span class="comment">### 语法</span></span><br><span class="line">```bash</span><br><span class="line">buf.write(string[, offset[, length]][, encoding])</span><br></pre></td></tr></table></figure>
+<h4 id="let-buffer-Buffer-allocUnsafe-10"><a href="#let-buffer-Buffer-allocUnsafe-10" class="headerlink" title="let buffer = Buffer.allocUnsafe(10)"></a>let buffer = Buffer.allocUnsafe(10)</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> buffer = Buffer.allocUnsafe(10)  </span><br><span class="line"><span class="comment"># 创建buffer但是并没有初始化，内部有值占用</span></span><br><span class="line">console.log(buffer)   <span class="comment"># &lt;Buffer 88 69 8a 8f 65 00 00 00 e8 69&gt;</span></span><br><span class="line">buffer.fill(0)   <span class="comment"># 相当于初始化，用零填充</span></span><br><span class="line">console.log(buffer)   <span class="comment"># &lt;Buffer 00 00 00 00 00 00 00 00 00 00&gt;</span></span><br><span class="line">```     </span><br><span class="line">                                                                                                             </span><br><span class="line"><span class="comment">## 写入Buffer</span></span><br><span class="line"><span class="comment">### 语法</span></span><br><span class="line">```bash</span><br><span class="line">buf.write(string[, offset[, length]][, encoding])</span><br></pre></td></tr></table></figure>
 <h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><ul>
 <li>string - 写入缓冲区的字符串。</li>
 <li>offset - 缓冲区开始写入的索引值，默认为 0 。</li>
@@ -589,8 +589,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/riceBlog/2018/07/23/JavaScript/你不知道的JavaScript系列（一）/" rel="next" title="你不知道到JavaScript系列一">
-                <i class="fa fa-chevron-left"></i> 你不知道到JavaScript系列一
+              <a href="/riceBlog/2018/07/24/了解nodejs前世今生/nodejs（二）/" rel="next" title="Http模块（二）">
+                <i class="fa fa-chevron-left"></i> Http模块（二）
               </a>
             
           </div>
@@ -599,8 +599,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/riceBlog/2018/07/24/了解nodejs前世今生/nodejs（二）/" rel="prev" title="Http模块">
-                Http模块 <i class="fa fa-chevron-right"></i>
+              <a href="/riceBlog/2018/07/25/微信小程序/微信小程序奇谈/" rel="prev" title="微信小程序奇谈">
+                微信小程序奇谈 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -692,7 +692,7 @@
               
                 <a href="/riceBlog/archives/">
               
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -942,7 +942,7 @@
         var disqus_config = function () {
           this.page.url = 'http://yoursite.com/2018/07/24/了解nodejs前世今生/nodejs（一）/';
           this.page.identifier = '2018/07/24/了解nodejs前世今生/nodejs（一）/';
-          this.page.title = 'Buffer模块';
+          this.page.title = 'Buffer模块（一）';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://.disqus.com/embed.js';

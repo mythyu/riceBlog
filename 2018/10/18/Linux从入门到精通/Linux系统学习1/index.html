@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/riceBlog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/riceBlog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/riceBlog/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/riceBlog/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/riceBlog/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/riceBlog/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/riceBlog/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Linux指令," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="档案与目录管理创建目录123mkdir testmkdir -p test1/test2/test3/test4mkdir -m 711 test2 修改文件权限详情12345678910mkdir -m 723 test1 // drwx-w--wx test1chmod 777 test1// drwxrwxrwx test1chmod u=rwx,g=rx,o=r test1// drwxr">
+<meta name="keywords" content="Linux指令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux系统学习ⅰ">
+<meta property="og:url" content="http://yoursite.com/2018/10/18/Linux从入门到精通/Linux系统学习1/index.html">
+<meta property="og:site_name" content="riceCK">
+<meta property="og:description" content="档案与目录管理创建目录123mkdir testmkdir -p test1/test2/test3/test4mkdir -m 711 test2 修改文件权限详情12345678910mkdir -m 723 test1 // drwx-w--wx test1chmod 777 test1// drwxrwxrwx test1chmod u=rwx,g=rx,o=r test1// drwxr">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-11-26T11:16:25.695Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux系统学习ⅰ">
+<meta name="twitter:description" content="档案与目录管理创建目录123mkdir testmkdir -p test1/test2/test3/test4mkdir -m 711 test2 修改文件权限详情12345678910mkdir -m 723 test1 // drwx-w--wx test1chmod 777 test1// drwxrwxrwx test1chmod u=rwx,g=rx,o=r test1// drwxr">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/riceBlog/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/10/18/Linux从入门到精通/Linux系统学习1/"/>
+
+
+
+
+
+  <title>Linux系统学习ⅰ | riceCK</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/riceBlog/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">riceCK</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">欢迎来到帅比凯的博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/riceBlog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/riceBlog/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/riceBlog/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/riceBlog/2018/10/18/Linux从入门到精通/Linux系统学习1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈凯">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/riceCk/riceBlog/master/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="riceCK">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux系统学习ⅰ</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-18T22:32:00+08:00">
+                2018-10-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/riceBlog/categories/Linux从入门到精通/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux从入门到精通</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/riceBlog/2018/10/18/Linux从入门到精通/Linux系统学习1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/10/18/Linux从入门到精通/Linux系统学习1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="档案与目录管理"><a href="#档案与目录管理" class="headerlink" title="档案与目录管理"></a>档案与目录管理</h1><h2 id="创建目录"><a href="#创建目录" class="headerlink" title="创建目录"></a>创建目录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir <span class="built_in">test</span></span><br><span class="line">mkdir -p test1/test2/test3/test4</span><br><span class="line">mkdir -m 711 test2</span><br></pre></td></tr></table></figure>
+<h2 id="修改文件权限详情"><a href="#修改文件权限详情" class="headerlink" title="修改文件权限详情"></a>修改文件权限详情</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mkdir -m 723 test1 </span><br><span class="line">// drwx-w--wx test1</span><br><span class="line">chmod 777 test1</span><br><span class="line">// drwxrwxrwx test1</span><br><span class="line">chmod u=rwx,g=rx,o=r test1</span><br><span class="line">// drwxr-xr-- text1</span><br><span class="line">chmod o+w test1</span><br><span class="line">// drwxr-xrw- text1</span><br><span class="line">chmod a-r test1</span><br><span class="line">// d-wx--x-w- text1</span><br></pre></td></tr></table></figure>
+<h2 id="cp-文件的复制"><a href="#cp-文件的复制" class="headerlink" title="cp:文件的复制"></a>cp:文件的复制</h2><p><strong>例题资料来自鸟哥Linux私房菜，感谢！</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">范例一：用root身份，将家目录下的.bashrc复制到/ tmp下，并更名为bashrc</span><br><span class="line">[root@study ~]<span class="comment"># cp ~/.bashrc /tmp/bashrc</span></span><br><span class="line">[root@study ~]<span class="comment"># cp -i ~/.bashrc /tmp/bashrc</span></span><br><span class="line">cp: overwrite `/tmp/bashrc<span class="string">'? n  &lt;==n不覆盖，y为覆盖</span></span><br><span class="line"><span class="string"># 重复做两次动作，由于/tmp地下已经存在bashrc了，加上 -i 选项之后，</span></span><br><span class="line"><span class="string"># 则在覆盖前会询问使用者是否确定！可以按下n或者y来二次确认！</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">范例二：变换目录到/tmp，并将/var/log/wtmp复制到/tmp且观察属性：</span></span><br><span class="line"><span class="string">[root@study ~]# cd /tmp</span></span><br><span class="line"><span class="string">[root@study tmp]# cp /var/log/wtmp . &lt;==想要复制到目前的目录，最后的 . 不要忘</span></span><br><span class="line"><span class="string">[root@study tmp]# ls -l /var/log/wtmp wtmp</span></span><br><span class="line"><span class="string">-rw-rw-r--. 1 root utmp 28416 Jun 11 18:56 /var/log/wtmp</span></span><br><span class="line"><span class="string">-rw-r--r--. 1 root root 28416 Jun 11 19:01 wtmp</span></span><br><span class="line"><span class="string"># 注意上面的特殊字体，在不加任何选项的情况下，档案的某些属性/权限会改变；</span></span><br><span class="line"><span class="string"># 这是个很重要的特性！要注意喔！还有，连档案建立的时间也不一样了！</span></span><br><span class="line"><span class="string"># 那如果你想要将档案的所有特性都一起复制过来该怎办？可以加上 -a 喔！如下所示：</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">[root@study tmp]# cp -a /var/log/wtmp wtmp_2</span></span><br><span class="line"><span class="string">[root@study tmp]# ls -l /var/log/wtmp wtmp_2</span></span><br><span class="line"><span class="string">-rw-rw-r--. 1 root utmp 28416 Jun 11 18:56 /var/log/wtmp</span></span><br><span class="line"><span class="string">-rw-rw-r--. 1 root utmp 28416 Jun 11 18:56 wtmp_2</span></span><br><span class="line"><span class="string"># 整个资料特性完全一模一样ㄟ！真是不赖～这就是 -a 的特性！</span></span><br></pre></td></tr></table></figure></p>
+<p>这个 cp 的功能很多，由于我们常常会进行一些资料的复制，所以也会常常用到这个指令的。一般来说，我们如果去复制别人的资料(当然，该档案你必须要有read 的权限才行啊！ ^<em>^) 时， 总是希望复制到的资料最后是我们自己的，所以，在预设的条件中， cp 的来源档与目的档的权限是不同的，目的档的拥有者通常会是指令操作者本身。举例来说， 上面的范例二中，由于我是 root 的身份，因此复制过来的档案拥有者与群组就改变成为 root 所有了！这样说，可以明白吗？ ^</em>^</p>
+<p>由于具有这个特性，因此当我们在进行备份的时候，某些需要特别注意的特殊权限档案， 例如密码档(/etc/shadow) 以及一些设定档，就不能直接以cp 来复制，而必须要加上-a 或者是-p 等等可以完整复制档案权限的选项才行！另外，如果你想要复制档案给其他的使用者， 也必须要注意到档案的权限(包含读、写、执行以及档案拥有者等等)， 否则，其他人还是无法针对你给予的档案进行修订的动作喔！注意注意！<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">范例三：复制 /etc/ 这个目录下的所有内容到 /tmp 底下</span><br><span class="line">[root@study tmp]<span class="comment"># cp /etc/ /tmp</span></span><br><span class="line"><span class="comment"># cp: omitting directory /etc   &lt;== 如果是目录则不能直接复制，要加上 -r 的选项</span></span><br><span class="line">[root@study tmp]<span class="comment"># cp -r /etc/ /tmp</span></span><br><span class="line"><span class="comment"># 还是要再次的强调喔！ -r 是可以复制目录，但是，档案与目录的权限可能会被改变</span></span><br><span class="line"><span class="comment"># 所以，也可以利用『 cp -a /etc /tmp 』来下达指令喔！尤其是在备份的情况下！</span></span><br><span class="line"></span><br><span class="line">范例四：将范例一复制的 bashrc 建立一个连结档 (symbolic link)</span><br><span class="line">[root@study tmp]<span class="comment"># ls -l bashrc</span></span><br><span class="line">-rw-r--r--. 1 root root 176 Jun 11 19:01 bashrc  &lt;==先观察一下档案情况</span><br><span class="line">[root@study tmp]<span class="comment"># cp -s bashrc bashrc_slink</span></span><br><span class="line">[root@study tmp]<span class="comment"># cp -l bashrc bashrc_hlink</span></span><br><span class="line">[root@study tmp]<span class="comment"># ls -l bashrc*</span></span><br><span class="line">-rw-r--r--. 2 root root 176 Jun 11 19:01 bashrc         &lt;==与原始档案不太一样了！</span><br><span class="line">-rw-r--r--. 2 root root 176 Jun 11 19:01 bashrc_hlink</span><br><span class="line">lrwxrwxrwx. 1 root root   6 Jun 11 19:06 bashrc_slink -&gt; bashrc</span><br></pre></td></tr></table></figure></p>
+<p>范例四可有趣了！使用 -l 及 -s 都会建立所谓的连结档(link file)，但是这两种连结档却有不一样的情况。这是怎么一回事啊？那个 -l 就是所谓的实体连结(hard link)，至于 -s 则是符号连结(symbolic link)， 简单来说，bashrc_slink 是一个『捷径』，这个捷径会连结到bashrc去！所以你会看到档名右侧会有个指向(-&gt;)的符号！</p>
+<p>至于bashrc_hlink档案与bashrc的属性与权限完全一模一样，与尚未进行连结前的差异则是第二栏的link数由1变成2了！</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">范例五：若 ~/.bashrc 比 /tmp/bashrc 新才复制过来</span><br><span class="line">[root@study tmp]<span class="comment"># cp -u ~/.bashrc /tmp/bashrc</span></span><br><span class="line"><span class="comment"># 这个 -u 的特性，是在目标档案与来源档案有差异时，才会复制的。</span></span><br><span class="line"><span class="comment"># 所以，比较常被用于『备份』的工作当中喔！ ^_^</span></span><br><span class="line"></span><br><span class="line">范例六：将范例四造成的 bashrc_slink 复制成为 bashrc_slink_1 与bashrc_slink_2</span><br><span class="line">[root@study tmp]<span class="comment"># cp bashrc_slink bashrc_slink_1</span></span><br><span class="line">[root@study tmp]<span class="comment"># cp -d bashrc_slink bashrc_slink_2</span></span><br><span class="line">[root@study tmp]<span class="comment"># ls -l bashrc bashrc_slink*</span></span><br><span class="line">-rw-r--r--. 2 root root 176 Jun 11 19:01 bashrc</span><br><span class="line">lrwxrwxrwx. 1 root root   6 Jun 11 19:06 bashrc_slink -&gt; bashrc</span><br><span class="line">-rw-r--r--. 1 root root 176 Jun 11 19:09 bashrc_slink_1            &lt;==与原始档案相同</span><br><span class="line">lrwxrwxrwx. 1 root root   6 Jun 11 19:10 bashrc_slink_2 -&gt; bashrc  &lt;==是连结档！</span><br><span class="line"><span class="comment"># 这个例子也是很有趣喔！原本复制的是连结档，但是却将连结档的实际档案复制过来了</span></span><br><span class="line"><span class="comment"># 也就是说，如果没有加上任何选项时，cp复制的是原始档案，而非连结档的属性！</span></span><br><span class="line"><span class="comment"># 若要复制连结档的属性，就得要使用 -d 的选项了！如 bashrc_slink_2 所示。</span></span><br><span class="line"></span><br><span class="line">范例七：将家目录的 .bashrc 及 .bash_history 复制到 /tmp 底下</span><br><span class="line">[root@study tmp]<span class="comment"># cp ~/.bashrc ~/.bash_history /tmp</span></span><br><span class="line"><span class="comment"># 可以将多个资料一次复制到同一个目录去！最后面一定是目录！</span></span><br></pre></td></tr></table></figure>
+<h2 id="MV-移动档案与目录，或者更名"><a href="#MV-移动档案与目录，或者更名" class="headerlink" title="MV:移动档案与目录，或者更名"></a>MV:移动档案与目录，或者更名</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">[root@study ~]<span class="comment"># mv [-fiu] source destination</span></span><br><span class="line">[root@study ~]<span class="comment"># mv [options] source1 source2 source3 .... directory</span></span><br><span class="line">选项与参数：</span><br><span class="line">-f ：force 强制的意思，如果目标档案已经存在，不会询问而直接覆盖；</span><br><span class="line">-i ：若目标档案 (destination) 已经存在时，就会询问是否覆盖！</span><br><span class="line">-u ：若目标档案已经存在，且 <span class="built_in">source</span> 比较新，才会更新 (update)</span><br><span class="line"></span><br><span class="line">范例一：复制一档案，建立一目录，将档案移动到目录中</span><br><span class="line">[root@study ~]<span class="comment"># cd /tmp</span></span><br><span class="line">[root@study tmp]<span class="comment"># cp ~/.bashrc bashrc</span></span><br><span class="line">[root@study tmp]<span class="comment"># mkdir mvtest</span></span><br><span class="line">[root@study tmp]<span class="comment"># mv bashrc mvtest</span></span><br><span class="line"><span class="comment"># 将某个档案移动到某个目录去，就是这样做！</span></span><br><span class="line"></span><br><span class="line">范例二：将刚刚的目录名称更名为 mvtest2</span><br><span class="line">[root@study tmp]<span class="comment"># mv mvtest mvtest2 &lt;== 这样就更名了！简单～</span></span><br><span class="line"><span class="comment"># 其实在 Linux 底下还有个有趣的指令，名称为 rename ，</span></span><br><span class="line"><span class="comment"># 该指令专职进行多个档名的同时更名，并非针对单一档名变更，与mv不同。请man rename。</span></span><br><span class="line"></span><br><span class="line">范例三：再建立两个档案，再全部移动到 /tmp/mvtest2 当中</span><br><span class="line">[root@study tmp]<span class="comment"># cp ~/.bashrc bashrc1</span></span><br><span class="line">[root@study tmp]<span class="comment"># cp ~/.bashrc bashrc2</span></span><br><span class="line">[root@study tmp]<span class="comment"># mv bashrc1 bashrc2 mvtest2</span></span><br><span class="line"><span class="comment"># 注意到这边，如果有多个来源档案或目录，则最后一个目标档一定是『目录！ 』</span></span><br><span class="line"><span class="comment"># 意思是说，将所有的资料移动到该目录的意思！</span></span><br></pre></td></tr></table></figure>
+<p>这是搬移 (move) 的意思！当你要移动档案或目录的时后，呵呵！这个指令就很重要啦！同样的，你也可以使用 -u ( update )来测试新旧档案，看看是否需要搬移啰！另外一个用途就是『变更档名！ 』，我们可以很轻易的使用 mv 来变更一个档案的档名呢！不过，在 Linux 才有的指令当中，有个 rename ， 可以用来更改大量档案的档名，你可以利用 man rename 来查阅一下，也是挺有趣的指令喔！</p>
+<h1 id="档案内容查阅"><a href="#档案内容查阅" class="headerlink" title="档案内容查阅"></a>档案内容查阅</h1><ul>
+<li>cat由第一行开始显示档案内容</li>
+<li>tac从最后一行开始显示，可以看出tac是cat的倒着写</li>
+<li>nl显示的时候，顺道输出行号</li>
+<li>more一页一页的显示档案内容</li>
+<li>less与more类似，但是比more更好的是，他可以往前翻页</li>
+<li>head只看都几行</li>
+<li>tail只看尾巴几行</li>
+<li>od以二进位的方式读取档案内容</li>
+</ul>
+<h2 id="直接监视档案内容"><a href="#直接监视档案内容" class="headerlink" title="直接监视档案内容"></a>直接监视档案内容</h2><h3 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h3><p>[root@study ~]# cat [-AbEnTv]<br>选项与参数：<br>-A ：相当于-vET 的整合选项，可列出一些特殊字符而不是空白而已；<br>-b ：列出行号，仅针对非空白行做行号显示，空白行不标行号！<br>-E ：将结尾的断行字元$ 显示出来；<br>-n ：列印出行号，连同空白行也会有行号，与-b 的选项不同；<br>-T ：将[tab] 按键以^I 显示出来；<br>-v ：列出一些看不出来的特殊字符<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">范例一：检阅/etc/issue这个档案的内容 </span><br><span class="line">[root@study ~]<span class="comment"># cat /etc/issue</span></span><br><span class="line">\S</span><br><span class="line">Kernel \r on an \m</span><br><span class="line"></span><br><span class="line">范例二：承上题，如果还要加印行号呢？</span><br><span class="line">[root@study ~]<span class="comment"># cat -n /etc/issue</span></span><br><span class="line">     1 \S</span><br><span class="line">     2 Kernel \r on an \m</span><br><span class="line">     3</span><br></pre></td></tr></table></figure></p>
+<h3 id="tac（反向列式）"><a href="#tac（反向列式）" class="headerlink" title="tac（反向列式）"></a>tac（反向列式）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@study ~]<span class="comment"># tac /etc/issue</span></span><br><span class="line"></span><br><span class="line">Kernel \r on an \m</span><br><span class="line">\S</span><br></pre></td></tr></table></figure>
+<h3 id="nl（添加行号列印）"><a href="#nl（添加行号列印）" class="headerlink" title="nl（添加行号列印）"></a>nl（添加行号列印）</h3><p>[root@study ~]# nl [-bnw]档案<br>选项与参数：<br>-b: 指定行号指定的方式，主要有两种<br>    -ba：表示不论是否为空行，也同样列出行号（类似cat -n）<br>    -bt：如果有空行，空的哪一行不要列出行号（预设值）<br>-n: 列出行号表示的方法，主要有三种：<br>    -n ln：行号在荧幕的最左方显示<br>    -n rn: 行号在自己栏位最右方显示，且不加0<br>    -n rz：行号在自己栏位的最右方显示，且加0<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">范例一：用nl列出/etc/issue的内容 </span><br><span class="line">[root@study ~]<span class="comment"># nl /etc/issue</span></span><br><span class="line">     1 \S</span><br><span class="line">     2 Kernel \r on an \m</span><br><span class="line"></span><br><span class="line"><span class="comment"># 注意看，这个档案其实有三行，第三行为空白(没有任何字元)，</span></span><br><span class="line"><span class="comment"># 因为他是空白行，所以nl 不会加上行号喔！如果确定要加上行号，可以这样做：</span></span><br><span class="line"></span><br><span class="line">[root@study ~]<span class="comment"># nl -ba /etc/issue</span></span><br><span class="line">     1 \S</span><br><span class="line">     2 Kernel \r on an \m</span><br><span class="line">     3</span><br><span class="line"><span class="comment"># 呵呵！行号加上来啰～那么如果要让行号前面自动补上0 呢？可这样</span></span><br><span class="line"></span><br><span class="line">[root@study ~]<span class="comment"># nl -ba -n rz /etc/issue</span></span><br><span class="line">000001 \S</span><br><span class="line">000002 Kernel \r on an \m</span><br><span class="line">000003</span><br><span class="line"><span class="comment"># 嘿嘿！自动在自己栏位的地方补上0 了～预设栏位是六位数，如果想要改成3 位数？</span></span><br><span class="line"></span><br><span class="line">[root@study ~]<span class="comment"># nl -ba -n rz -w 3 /etc/issue</span></span><br><span class="line">001 \S</span><br><span class="line">002 Kernel \r on an \m</span><br><span class="line">003</span><br><span class="line"><span class="comment"># 变成仅有3 位数啰～</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="可翻页检视"><a href="#可翻页检视" class="headerlink" title="可翻页检视"></a>可翻页检视</h2><h3 id="more-（一页一页翻动）"><a href="#more-（一页一页翻动）" class="headerlink" title="more （一页一页翻动）"></a>more （一页一页翻动）</h3><ul>
+<li>空白键（space）：代表向下翻一页</li>
+<li>Enter：代表向下翻一行</li>
+<li>/字符：代表在这个显示的内容当中，向下搜寻字符这个关键词</li>
+<li>:f：立刻显示出档名以及目前显示的行数</li>
+<li>q：代表立刻离开more，不再显示该档案内容</li>
+<li>b：代表往回翻页，不过这个动作只对档案有用，对管线没用</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@study ~]<span class="comment"># more /etc/man_db.conf</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># This file is used by the man-db package to configure the man and cat paths.</span></span><br><span class="line"><span class="comment"># It is also used to provide a manpath for those without one by examining</span></span><br><span class="line"><span class="comment"># their PATH environment variable. For details see the manpath(5) man page.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">.....(中间省略)..... </span><br><span class="line">--More--(28%)   &lt;==重点在这一行喔！你的游标也会在这里等待你的指令</span><br></pre></td></tr></table></figure>
+<h3 id="less（一页一页翻动）"><a href="#less（一页一页翻动）" class="headerlink" title="less（一页一页翻动）"></a>less（一页一页翻动）</h3><ul>
+<li>空格键：向下翻动一页</li>
+<li>【pagedown】: 向下翻动一页</li>
+<li>【pageup】：向上翻动一页</li>
+<li>/字串：向下搜寻字串的功能</li>
+<li>？字串：向上搜寻字串功能</li>
+<li>n：重复前一个搜寻（与/或？有关！）</li>
+<li>N：反向的重复前一个搜寻（与/或？有关！）</li>
+<li>g：前进的这一个资料的第一行去</li>
+<li>G：前进到这个资料的最后一行去（注意大小写）</li>
+<li>q：离开less这个程式</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@study ~]<span class="comment"># less /etc/man_db.conf</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># This file is used by the man-db package to configure the man and cat paths.</span></span><br><span class="line"><span class="comment"># It is also used to provide a manpath for those without one by examining</span></span><br><span class="line"><span class="comment"># their PATH environment variable. For details see the manpath(5) man page.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">.....(中间省略)..... </span><br><span class="line">: &lt;==这里可以等待你输入指令！</span><br></pre></td></tr></table></figure>
+<h2 id="资料撷取"><a href="#资料撷取" class="headerlink" title="资料撷取"></a>资料撷取</h2><h3 id="head（取出前面几行）"><a href="#head（取出前面几行）" class="headerlink" title="head（取出前面几行）"></a>head（取出前面几行）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@study ~]<span class="comment"># head [-n number]档案</span></span><br><span class="line">选项与参数：</span><br><span class="line">-n ：后面接数字，代表显示几行的意思</span><br><span class="line"></span><br><span class="line">[root@study ~]<span class="comment"># head /etc/man_db.conf </span></span><br><span class="line"><span class="comment">#预设的情况中，显示前面十行！若要显示前20行，就得要这样： </span></span><br><span class="line">[root@study ~]<span class="comment"># head -n 20 /etc/man_db.conf</span></span><br><span class="line"></span><br><span class="line">范例：如果后面100行的资料都不列印，只列印/etc/man_db.conf的前面几行，该如何是好？</span><br><span class="line">[root@study ~]<span class="comment"># head -n -100 /etc/man_db.conf</span></span><br></pre></td></tr></table></figure>
+<h3 id="tail（取出后面几行）"><a href="#tail（取出后面几行）" class="headerlink" title="tail（取出后面几行）"></a>tail（取出后面几行）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[root@study ~]<span class="comment"># tail [-n number]档案</span></span><br><span class="line">选项与参数：</span><br><span class="line">-n ：后面接数字，代表显示几行的意思</span><br><span class="line">-f ：表示持续侦测后面所接的档名，要等到按下[ctrl]-c才会结束tail的侦测</span><br><span class="line"></span><br><span class="line">[root@study ~]<span class="comment"># tail /etc/man_db.conf </span></span><br><span class="line"><span class="comment">#预设的情况中，显示最后的十行！若要显示最后的20行，就得要这样： </span></span><br><span class="line">[root@study ~]<span class="comment"># tail -n 20 /etc/man_db.conf</span></span><br><span class="line"></span><br><span class="line">范例一：如果不知道/etc/man_db.conf有几行，却只想列出100行以后的资料时？</span><br><span class="line">[root@study ~]<span class="comment"># tail -n +100 /etc/man_db.conf</span></span><br><span class="line"></span><br><span class="line">范例二：持续侦测/var/<span class="built_in">log</span>/messages的内容 </span><br><span class="line">[root@study ~]<span class="comment"># tail -f /var/log/messages </span></span><br><span class="line">  &lt;==要等到输入[ctrl]-c之后才会离开tail这个指令的侦测！</span><br></pre></td></tr></table></figure>
+<h3 id="非文字档案：od"><a href="#非文字档案：od" class="headerlink" title="非文字档案：od"></a>非文字档案：od</h3>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/riceBlog/tags/Linux指令/" rel="tag"># Linux指令</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/riceBlog/2018/09/15/全栈用户管理/用户管理（上）/" rel="next" title="Node+express+mql实战——用户管理（上）">
+                <i class="fa fa-chevron-left"></i> Node+express+mql实战——用户管理（上）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/riceBlog/2018/10/28/Git/Git与时间简史/" rel="prev" title="Git与时间简史">
+                Git与时间简史 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://raw.githubusercontent.com/riceCk/riceBlog/master/images/avatar.png"
+                alt="陈凯" />
+            
+              <p class="site-author-name" itemprop="name">陈凯</p>
+              <p class="site-description motion-element" itemprop="description">learning target</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/riceBlog/archives/">
+              
+                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/riceBlog/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/riceBlog/tags/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/riceCk" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="your-weibo-url" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#档案与目录管理"><span class="nav-number">1.</span> <span class="nav-text">档案与目录管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建目录"><span class="nav-number">1.1.</span> <span class="nav-text">创建目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改文件权限详情"><span class="nav-number">1.2.</span> <span class="nav-text">修改文件权限详情</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cp-文件的复制"><span class="nav-number">1.3.</span> <span class="nav-text">cp:文件的复制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MV-移动档案与目录，或者更名"><span class="nav-number">1.4.</span> <span class="nav-text">MV:移动档案与目录，或者更名</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#档案内容查阅"><span class="nav-number">2.</span> <span class="nav-text">档案内容查阅</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#直接监视档案内容"><span class="nav-number">2.1.</span> <span class="nav-text">直接监视档案内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cat"><span class="nav-number">2.1.1.</span> <span class="nav-text">cat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tac（反向列式）"><span class="nav-number">2.1.2.</span> <span class="nav-text">tac（反向列式）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nl（添加行号列印）"><span class="nav-number">2.1.3.</span> <span class="nav-text">nl（添加行号列印）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可翻页检视"><span class="nav-number">2.2.</span> <span class="nav-text">可翻页检视</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#more-（一页一页翻动）"><span class="nav-number">2.2.1.</span> <span class="nav-text">more （一页一页翻动）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#less（一页一页翻动）"><span class="nav-number">2.2.2.</span> <span class="nav-text">less（一页一页翻动）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#资料撷取"><span class="nav-number">2.3.</span> <span class="nav-text">资料撷取</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#head（取出前面几行）"><span class="nav-number">2.3.1.</span> <span class="nav-text">head（取出前面几行）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tail（取出后面几行）"><span class="nav-number">2.3.2.</span> <span class="nav-text">tail（取出后面几行）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非文字档案：od"><span class="nav-number">2.3.3.</span> <span class="nav-text">非文字档案：od</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈凯</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/riceBlog/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/riceBlog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/riceBlog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/riceBlog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/riceBlog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/riceBlog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/riceBlog/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/riceBlog/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/riceBlog/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/riceBlog/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/riceBlog/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/riceBlog/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/riceBlog/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/riceBlog/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2018/10/18/Linux从入门到精通/Linux系统学习1/';
+          this.page.identifier = '2018/10/18/Linux从入门到精通/Linux系统学习1/';
+          this.page.title = 'Linux系统学习ⅰ';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
