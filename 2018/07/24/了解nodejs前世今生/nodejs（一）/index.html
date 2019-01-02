@@ -87,10 +87,12 @@
 <meta property="og:site_name" content="riceCK">
 <meta property="og:description" content="一、nodejs基本操作1、通过官网安装包2、通过nvm安装nvm GitHub下载地址安装过程有事是非常坎坷的，大神nodejs和nvm拍坑安装流程 Nvm的命令12345nvm list available # nvm install 6.14.2  #6.14.2版本号，安装指定版本nvm use 6.14.2  #切换6点版本号nvm list  #查看本机安装点所有node版本号nvm">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-18T12:19:39.307Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/riceCk/riceBlog/master/images/nodeFlag.png">
+<meta property="og:updated_time" content="2018-12-08T08:29:58.753Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Buffer模块（一）">
 <meta name="twitter:description" content="一、nodejs基本操作1、通过官网安装包2、通过nvm安装nvm GitHub下载地址安装过程有事是非常坎坷的，大神nodejs和nvm拍坑安装流程 Nvm的命令12345nvm list available # nvm install 6.14.2  #6.14.2版本号，安装指定版本nvm use 6.14.2  #切换6点版本号nvm list  #查看本机安装点所有node版本号nvm">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/riceCk/riceBlog/master/images/nodeFlag.png">
 
 
 
@@ -445,9 +447,9 @@
 <li>a 以追加模式打开文件，如果文件不存在则创建。</li>
 <li>ax 类似 ‘a’， 但是如果文件路径存在，则文件追加失败。</li>
 <li>a+ 以读取追加模式打开文件，如果文件不存在则创建。</li>
-<li>ax+ 类似 ‘a+’， 但是如果文件路径存在，则文件读取追加失败。</li>
+<li>ax+ 类似 ‘a+’， 但是如果文件路径存在，则文件读取追加失败。<br><img src="https://raw.githubusercontent.com/riceCk/riceBlog/master/images/nodeFlag.png" alt="图片"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var fs = require(<span class="string">'fs'</span>)</span><br><span class="line"><span class="comment">#引入文件模块</span></span><br><span class="line">var fd = fs.openSync(<span class="string">'1.txt'</span>, <span class="string">'r'</span>)</span><br><span class="line">console.log(fd);</span><br><span class="line">fs.closeSync(fd);</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var fs = require(<span class="string">'fs'</span>)</span><br><span class="line"><span class="comment">#引入文件模块</span></span><br><span class="line">var fd = fs.openSync(<span class="string">'1.txt'</span>, <span class="string">'r'</span>)</span><br><span class="line">console.log(fd);</span><br><span class="line">fs.closeSync(fd);</span><br></pre></td></tr></table></figure>
 <h4 id="（2）异步打开-同步读取文件"><a href="#（2）异步打开-同步读取文件" class="headerlink" title="（2）异步打开 + 同步读取文件"></a>（2）异步打开 + 同步读取文件</h4><p><strong>异步打开语法</strong><br>fs.open(path, flags[, mode], callback)</p>
 <ul>
 <li>path <string> | <buffer> | <url> </url></buffer></string></li>
@@ -783,7 +785,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
