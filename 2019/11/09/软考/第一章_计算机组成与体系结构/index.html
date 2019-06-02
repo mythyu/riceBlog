@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="riceCK">
 <meta property="og:description" content="课程内容提要 数据的表示 计算机结构 Flynn分类法 CISC与RISC 流水线技术 存储系统 总线系统 可靠性 校验码  一、数据的表示进制转换比如二进制转十进制： 10100.01 = 1 x 2^4 + 1 x 2^2 + 1 x 2^-2比如七进制转十进制： 604.01 = 6 x 7^2 + 4 x 7^0 + 1 x 7^-2十进制转二进制短除法123456782|94    余">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-02T07:05:31.992Z">
+<meta property="og:updated_time" content="2019-06-02T13:32:00.797Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第一章_计算机组成与体系结构（占6分）">
 <meta name="twitter:description" content="课程内容提要 数据的表示 计算机结构 Flynn分类法 CISC与RISC 流水线技术 存储系统 总线系统 可靠性 校验码  一、数据的表示进制转换比如二进制转十进制： 10100.01 = 1 x 2^4 + 1 x 2^2 + 1 x 2^-2比如七进制转十进制： 604.01 = 6 x 7^2 + 4 x 7^0 + 1 x 7^-2十进制转二进制短除法123456782|94    余">
@@ -429,13 +429,67 @@
 <tbody>
 <tr>
 <td style="text-align:center">单指令流单数据流SISD</td>
-<td style="text-align:center">控制器部分（1个），处理器（1个），主存模板（1个）</td>
+<td style="text-align:center">控制器部分（1个）、处理器（1个）、主存模板（1个）</td>
 <td style="text-align:center"></td>
 <td style="text-align:center">单处理器系统</td>
 </tr>
+<tr>
+<td style="text-align:center">单指令流多数据流SIMD</td>
+<td style="text-align:center">处理器部分（1个）、处理器（多个）、主存模板（多个）</td>
+<td style="text-align:center">各处理器以异步的形式执行同一条指令</td>
+<td style="text-align:center">并行处理机、阵列处理机、超级向量处理机</td>
+</tr>
+<tr>
+<td style="text-align:center">多指令流单数据流MISD</td>
+<td style="text-align:center">控制部分（多个）、处理器（1个）、主存模板（多个）</td>
+<td style="text-align:center">被证明不可能，至少是不实际</td>
+<td style="text-align:center">目前没有，有文献称流水线计算机为类</td>
+</tr>
+<tr>
+<td style="text-align:center">多指令流多数据流MIMD</td>
+<td style="text-align:center">控制部分（多个）、处理器（多个）、主存模板（多个）</td>
+<td style="text-align:center">能够实现作业、任务、指令等各级全面并行</td>
+<td style="text-align:center">多处理机系统、多计算机</td>
+</tr>
 </tbody>
 </table>
-<h1 id="四、CISC与RISC"><a href="#四、CISC与RISC" class="headerlink" title="四、CISC与RISC"></a>四、CISC与RISC</h1><h1 id="五、流水线技术"><a href="#五、流水线技术" class="headerlink" title="五、流水线技术"></a>五、流水线技术</h1><h1 id="六、存储系统"><a href="#六、存储系统" class="headerlink" title="六、存储系统"></a>六、存储系统</h1><h1 id="七、总线系统"><a href="#七、总线系统" class="headerlink" title="七、总线系统"></a>七、总线系统</h1><h1 id="八、可靠性"><a href="#八、可靠性" class="headerlink" title="八、可靠性"></a>八、可靠性</h1><h1 id="九、校验码"><a href="#九、校验码" class="headerlink" title="九、校验码"></a>九、校验码</h1>
+<h1 id="四、CISC与RISC"><a href="#四、CISC与RISC" class="headerlink" title="四、CISC与RISC"></a>四、CISC与RISC</h1><table>
+<thead>
+<tr>
+<th style="text-align:center">指令系统类型</th>
+<th style="text-align:center">指令</th>
+<th style="text-align:center">寻址方式</th>
+<th style="text-align:center">实现方式</th>
+<th style="text-align:center">其他</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">CISC（复杂）</td>
+<td style="text-align:center">数量多，使用频率差别大，可变长格式</td>
+<td style="text-align:center">支持多种</td>
+<td style="text-align:center">微程序控制技术（微码）</td>
+<td style="text-align:center">研制周期长</td>
+</tr>
+<tr>
+<td style="text-align:center">RISC精简</td>
+<td style="text-align:center">数量少，使用频率接近，定长格式，大部分为单周指令，操作寄存器，只有Load/Store操作内存</td>
+<td style="text-align:center">支持方式少</td>
+<td style="text-align:center">增加了通用寄存器；硬布线逻辑控制为主；适合采用流水线</td>
+<td style="text-align:center">优化编译，有效支持高级语言</td>
+</tr>
+</tbody>
+</table>
+<h1 id="五、流水线技术（取指-gt-分析-gt-执行）"><a href="#五、流水线技术（取指-gt-分析-gt-执行）" class="headerlink" title="五、流水线技术（取指-&gt;分析-&gt;执行）"></a>五、流水线技术（取指-&gt;分析-&gt;执行）</h1><p>流水线是指在程序执行时多条指令重叠进行操作的一种准并行处理实现技术。各种部件同事处理是针对不同指令而言的，它们可同时为多条指令的不同部分进行工作，以提高各部件的利用率和指令的平均执行速度</p>
+<h2 id="流水线计算问题"><a href="#流水线计算问题" class="headerlink" title="流水线计算问题"></a>流水线计算问题</h2><ul>
+<li>流水线周期为执行时间最长的一段</li>
+<li>流水线公式:<br>1条指令执行时间+（指令条数 - 1）<em>流水线周期<br>①理论公式：(t1+t2+…tk)+(n-1)</em>△t<br>②实际公式：(k+n-1)*△t</li>
+</ul>
+<h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><p><strong>注：</strong>考试首先利用理论公式，在利用实际公式<br><strong>例：</strong>若指令流水线把一条指令分为取指、分析、执行三个部分，且三个部分的时间分别是取指2ns，分析2ns，执行1ns。那么流水线周期是多少？100条指令全部执行完毕需要的时间是多少？<br><strong>答：</strong><br>1、<code>流水线周期为执行时间最长的一段</code>,所以流水线周期是2ns<br>2、100条指令全部执行多久<br><strong>理论公式：</strong><code>1条指令执行时间+（指令条数 - 1）*流水线周期</code><br>(2+2+1) + (100-1) <em> 2 = 203<br><strong>实际公式：</strong>(k+n-1)</em>△t,k为指令分为几个部分，这边取指、分析、执行三个部分<br>(3+100-1)*2 = 204</p>
+<h2 id="流水线吞吐率计算"><a href="#流水线吞吐率计算" class="headerlink" title="流水线吞吐率计算"></a>流水线吞吐率计算</h2><p>流水线的吞吐率是指在单位时间内流水线所完成的任务数量或者输出的结果数量。计算流水线吞吐率的基本的公式如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">      指令条数</span><br><span class="line">TP=——————————————</span><br><span class="line">   流水线执行时间</span><br></pre></td></tr></table></figure></p>
+<h3 id="以上面的例题为基础计算的吞吐率"><a href="#以上面的例题为基础计算的吞吐率" class="headerlink" title="以上面的例题为基础计算的吞吐率"></a>以上面的例题为基础计算的吞吐率</h3><p>TP=100/203</p>
+<h2 id="流水线最大吞吐率"><a href="#流水线最大吞吐率" class="headerlink" title="流水线最大吞吐率"></a>流水线最大吞吐率</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">                    n           1</span><br><span class="line">TP(max) = Lim ————————————  = ——————</span><br><span class="line">         n-&gt;∞  (k+n-1)△t       △t</span><br></pre></td></tr></table></figure>
+<h1 id="六、存储系统"><a href="#六、存储系统" class="headerlink" title="六、存储系统"></a>六、存储系统</h1><h1 id="七、总线系统"><a href="#七、总线系统" class="headerlink" title="七、总线系统"></a>七、总线系统</h1><h1 id="八、可靠性"><a href="#八、可靠性" class="headerlink" title="八、可靠性"></a>八、可靠性</h1><h1 id="九、校验码"><a href="#九、校验码" class="headerlink" title="九、校验码"></a>九、校验码</h1>
       
     </div>
     
@@ -635,7 +689,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#课程内容提要"><span class="nav-number">1.</span> <span class="nav-text">课程内容提要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、数据的表示"><span class="nav-number">2.</span> <span class="nav-text">一、数据的表示</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#进制转换"><span class="nav-number">2.1.</span> <span class="nav-text">进制转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据编码问题"><span class="nav-number">2.2.</span> <span class="nav-text">数据编码问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#表示范围-n-8"><span class="nav-number">2.2.1.</span> <span class="nav-text">表示范围(n = 8)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、计算机结构"><span class="nav-number">3.</span> <span class="nav-text">二、计算机结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CUP"><span class="nav-number">3.0.0.1.</span> <span class="nav-text">CUP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#控制器"><span class="nav-number">3.0.0.2.</span> <span class="nav-text">控制器</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、Flynn分类法"><span class="nav-number">4.</span> <span class="nav-text">三、Flynn分类法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、CISC与RISC"><span class="nav-number">5.</span> <span class="nav-text">四、CISC与RISC</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、流水线技术"><span class="nav-number">6.</span> <span class="nav-text">五、流水线技术</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#六、存储系统"><span class="nav-number">7.</span> <span class="nav-text">六、存储系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#七、总线系统"><span class="nav-number">8.</span> <span class="nav-text">七、总线系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#八、可靠性"><span class="nav-number">9.</span> <span class="nav-text">八、可靠性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#九、校验码"><span class="nav-number">10.</span> <span class="nav-text">九、校验码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#课程内容提要"><span class="nav-number">1.</span> <span class="nav-text">课程内容提要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、数据的表示"><span class="nav-number">2.</span> <span class="nav-text">一、数据的表示</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#进制转换"><span class="nav-number">2.1.</span> <span class="nav-text">进制转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据编码问题"><span class="nav-number">2.2.</span> <span class="nav-text">数据编码问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#表示范围-n-8"><span class="nav-number">2.2.1.</span> <span class="nav-text">表示范围(n = 8)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、计算机结构"><span class="nav-number">3.</span> <span class="nav-text">二、计算机结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CUP"><span class="nav-number">3.0.0.1.</span> <span class="nav-text">CUP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#控制器"><span class="nav-number">3.0.0.2.</span> <span class="nav-text">控制器</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、Flynn分类法"><span class="nav-number">4.</span> <span class="nav-text">三、Flynn分类法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、CISC与RISC"><span class="nav-number">5.</span> <span class="nav-text">四、CISC与RISC</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、流水线技术（取指-gt-分析-gt-执行）"><span class="nav-number">6.</span> <span class="nav-text">五、流水线技术（取指-&gt;分析-&gt;执行）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#流水线计算问题"><span class="nav-number">6.1.</span> <span class="nav-text">流水线计算问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例题"><span class="nav-number">6.1.1.</span> <span class="nav-text">例题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流水线吞吐率计算"><span class="nav-number">6.2.</span> <span class="nav-text">流水线吞吐率计算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#以上面的例题为基础计算的吞吐率"><span class="nav-number">6.2.1.</span> <span class="nav-text">以上面的例题为基础计算的吞吐率</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流水线最大吞吐率"><span class="nav-number">6.3.</span> <span class="nav-text">流水线最大吞吐率</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#六、存储系统"><span class="nav-number">7.</span> <span class="nav-text">六、存储系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#七、总线系统"><span class="nav-number">8.</span> <span class="nav-text">七、总线系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#八、可靠性"><span class="nav-number">9.</span> <span class="nav-text">八、可靠性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#九、校验码"><span class="nav-number">10.</span> <span class="nav-text">九、校验码</span></a></li></ol></div>
             
 
           </div>
