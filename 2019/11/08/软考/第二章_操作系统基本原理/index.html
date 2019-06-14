@@ -79,20 +79,23 @@
 
 
 
-<meta name="description" content="概述操作系统管理职能 进程管理 进程的状态前趋图PV操作死锁问题   存储管理 段页式存储页面置换算法   文件管理 索引文件位示图   作业管理 设备管理 微内核操作系统 虚设备与SPOOLING技术    进程管理进程管理-进程的状态 进程的同步与互斥PV操作 临界资源：诸进程间需要互斥方式对齐进行共享资源，如打印机、磁带机等 临界区：每个进程中访问临界资源的那段代码成为临界区 信号量：是一种">
+<meta name="description" content="概述操作系统管理职能 进程管理 进程的状态前趋图PV操作死锁问题   存储管理 段页式存储页面置换算法   文件管理 索引文件位示图   作业管理 设备管理 微内核操作系统 虚设备与SPOOLING技术    进程管理进程管理-进程的状态 进程的同步与互斥PV操作（P堵塞执行，V等待执行） 临界资源：诸进程间需要互斥方式对齐进行共享资源，如打印机、磁带机等 临界区：每个进程中访问临界资源的那段代码">
 <meta name="keywords" content="软考">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第二章_操作系统基本原理">
 <meta property="og:url" content="http://yoursite.com/2019/11/08/软考/第二章_操作系统基本原理/index.html">
 <meta property="og:site_name" content="riceCK">
-<meta property="og:description" content="概述操作系统管理职能 进程管理 进程的状态前趋图PV操作死锁问题   存储管理 段页式存储页面置换算法   文件管理 索引文件位示图   作业管理 设备管理 微内核操作系统 虚设备与SPOOLING技术    进程管理进程管理-进程的状态 进程的同步与互斥PV操作 临界资源：诸进程间需要互斥方式对齐进行共享资源，如打印机、磁带机等 临界区：每个进程中访问临界资源的那段代码成为临界区 信号量：是一种">
+<meta property="og:description" content="概述操作系统管理职能 进程管理 进程的状态前趋图PV操作死锁问题   存储管理 段页式存储页面置换算法   文件管理 索引文件位示图   作业管理 设备管理 微内核操作系统 虚设备与SPOOLING技术    进程管理进程管理-进程的状态 进程的同步与互斥PV操作（P堵塞执行，V等待执行） 临界资源：诸进程间需要互斥方式对齐进行共享资源，如打印机、磁带机等 临界区：每个进程中访问临界资源的那段代码">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/riceCk/riceBlog/master/images/jc.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/riceCk/riceBlog/master/images/PV.png">
-<meta property="og:updated_time" content="2019-06-13T02:25:05.560Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/riceCk/riceBlog/master/images/pvOperating.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/riceCk/riceBlog/master/images/ss.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/riceCk/riceBlog/master/images/fq.png">
+<meta property="og:updated_time" content="2019-06-14T02:07:14.232Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第二章_操作系统基本原理">
-<meta name="twitter:description" content="概述操作系统管理职能 进程管理 进程的状态前趋图PV操作死锁问题   存储管理 段页式存储页面置换算法   文件管理 索引文件位示图   作业管理 设备管理 微内核操作系统 虚设备与SPOOLING技术    进程管理进程管理-进程的状态 进程的同步与互斥PV操作 临界资源：诸进程间需要互斥方式对齐进行共享资源，如打印机、磁带机等 临界区：每个进程中访问临界资源的那段代码成为临界区 信号量：是一种">
+<meta name="twitter:description" content="概述操作系统管理职能 进程管理 进程的状态前趋图PV操作死锁问题   存储管理 段页式存储页面置换算法   文件管理 索引文件位示图   作业管理 设备管理 微内核操作系统 虚设备与SPOOLING技术    进程管理进程管理-进程的状态 进程的同步与互斥PV操作（P堵塞执行，V等待执行） 临界资源：诸进程间需要互斥方式对齐进行共享资源，如打印机、磁带机等 临界区：每个进程中访问临界资源的那段代码">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/riceCk/riceBlog/master/images/jc.png">
 
 
@@ -367,10 +370,24 @@
 </li>
 </ul>
 <h1 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h1><h2 id="进程管理-进程的状态"><a href="#进程管理-进程的状态" class="headerlink" title="进程管理-进程的状态"></a>进程管理-进程的状态</h2><p><img src="https://raw.githubusercontent.com/riceCk/riceBlog/master/images/jc.png" alt="进程状态"></p>
-<h2 id="进程的同步与互斥"><a href="#进程的同步与互斥" class="headerlink" title="进程的同步与互斥"></a>进程的同步与互斥</h2><h2 id="PV操作"><a href="#PV操作" class="headerlink" title="PV操作"></a>PV操作</h2><ul>
+<h2 id="进程的同步与互斥"><a href="#进程的同步与互斥" class="headerlink" title="进程的同步与互斥"></a>进程的同步与互斥</h2><h2 id="PV操作（P堵塞执行，V等待执行）"><a href="#PV操作（P堵塞执行，V等待执行）" class="headerlink" title="PV操作（P堵塞执行，V等待执行）"></a>PV操作（P堵塞执行，V等待执行）</h2><ul>
 <li>临界资源：诸进程间需要互斥方式对齐进行共享资源，如打印机、磁带机等</li>
 <li>临界区：每个进程中访问临界资源的那段代码成为临界区</li>
-<li>信号量：是一种特殊的变量<br><img src="https://raw.githubusercontent.com/riceCk/riceBlog/master/images/PV.png" alt="进程状态"></li>
+<li>信号量：是一种特殊的变量<br><img src="https://raw.githubusercontent.com/riceCk/riceBlog/master/images/PV.png" alt="PV操作"><h3 id="pv操作例题"><a href="#pv操作例题" class="headerlink" title="pv操作例题"></a>pv操作例题</h3>某书店有一个收银员，该书店最多允许n个购书者进入。将收银员和购书者看作不同的进程，其工作流程如下图所示。利用PV操作实现该过程，设置信号量S1、S2、和Sn，初值分别为0，0，n。则图中a1和a2应填入<del>（1）</del>，图中b1和b2应填入<del>（2）</del><br>pvOperating.png<br><img src="https://raw.githubusercontent.com/riceCk/riceBlog/master/images/pvOperating.png" alt="pv操作例题"></li>
+</ul>
+<h2 id="死锁问题"><a href="#死锁问题" class="headerlink" title="死锁问题"></a>死锁问题</h2><p>进程管理是操作系统的核心，但如果设计不当，就会出现死锁的问题。如果一个进程在等待一件不可能发生的事，则进程就死锁了。而如果一个火多个进程产生死锁，就会造成系统死锁。<br><img src="https://raw.githubusercontent.com/riceCk/riceBlog/master/images/ss.png" alt="死锁问题"></p>
+<h3 id="银行家算法"><a href="#银行家算法" class="headerlink" title="银行家算法"></a>银行家算法</h3><p>分配资源的原则</p>
+<ul>
+<li>当一个进程对资源的最大需求量不超过系统中的资源数时可以接纳该进程</li>
+<li>进程可以分期请求资源，但是请求的总数不超过最大需求量</li>
+<li>单系统现有的资源不能满足进程尚需资源数时，对进程的请求可以推迟分配，当总能使进程在有限时间里得到资源</li>
+</ul>
+<h1 id="存储管理"><a href="#存储管理" class="headerlink" title="存储管理"></a>存储管理</h1><h2 id="分区存储组织"><a href="#分区存储组织" class="headerlink" title="分区存储组织"></a>分区存储组织</h2><p><img src="https://raw.githubusercontent.com/riceCk/riceBlog/master/images/fq.png" alt="死锁问题"></p>
+<h2 id="页面置换算法"><a href="#页面置换算法" class="headerlink" title="页面置换算法"></a>页面置换算法</h2><ul>
+<li>最优算法</li>
+<li>随机算法</li>
+<li>先进先出算法：有可能产生“抖动”。例如：432143543215序列，用3个页面，比4个缺页要少</li>
+<li>最近最少使用算法：不会“抖动”</li>
 </ul>
 
       
@@ -576,7 +593,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统管理职能"><span class="nav-number">1.1.</span> <span class="nav-text">操作系统管理职能</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#进程管理"><span class="nav-number">2.</span> <span class="nav-text">进程管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#进程管理-进程的状态"><span class="nav-number">2.1.</span> <span class="nav-text">进程管理-进程的状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程的同步与互斥"><span class="nav-number">2.2.</span> <span class="nav-text">进程的同步与互斥</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PV操作"><span class="nav-number">2.3.</span> <span class="nav-text">PV操作</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统管理职能"><span class="nav-number">1.1.</span> <span class="nav-text">操作系统管理职能</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#进程管理"><span class="nav-number">2.</span> <span class="nav-text">进程管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#进程管理-进程的状态"><span class="nav-number">2.1.</span> <span class="nav-text">进程管理-进程的状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程的同步与互斥"><span class="nav-number">2.2.</span> <span class="nav-text">进程的同步与互斥</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PV操作（P堵塞执行，V等待执行）"><span class="nav-number">2.3.</span> <span class="nav-text">PV操作（P堵塞执行，V等待执行）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pv操作例题"><span class="nav-number">2.3.1.</span> <span class="nav-text">pv操作例题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#死锁问题"><span class="nav-number">2.4.</span> <span class="nav-text">死锁问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#银行家算法"><span class="nav-number">2.4.1.</span> <span class="nav-text">银行家算法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#存储管理"><span class="nav-number">3.</span> <span class="nav-text">存储管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分区存储组织"><span class="nav-number">3.1.</span> <span class="nav-text">分区存储组织</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#页面置换算法"><span class="nav-number">3.2.</span> <span class="nav-text">页面置换算法</span></a></li></ol></li></ol></div>
             
 
           </div>
