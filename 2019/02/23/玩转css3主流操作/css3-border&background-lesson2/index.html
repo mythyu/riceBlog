@@ -88,7 +88,7 @@
 <meta property="og:description" content="border的拆一级拆分1border-radius: 10px 20px 30px 40px; 二级拆分1234border-top-left-radius: 10px;border-top-right-radius: 20px;border-bottom-right-radius: 30px;border-bottom-left-radius: 40px; 三级拆分1234border-top">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/riceCk/riceBlog/master/images/borderImageSlice.png">
-<meta property="og:updated_time" content="2019-02-28T08:19:31.653Z">
+<meta property="og:updated_time" content="2019-07-31T05:55:52.813Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css3-border&amp;background-lesson2">
 <meta name="twitter:description" content="border的拆一级拆分1border-radius: 10px 20px 30px 40px; 二级拆分1234border-top-left-radius: 10px;border-top-right-radius: 20px;border-bottom-right-radius: 30px;border-bottom-left-radius: 40px; 三级拆分1234border-top">
@@ -370,7 +370,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 支持两个参数，水平 垂直</span></span><br><span class="line">border-image-repeat: round space;</span><br></pre></td></tr></table></figure>
 <h1 id="box-shadow"><a href="#box-shadow" class="headerlink" title="box-shadow"></a>box-shadow</h1><h2 id="水平偏移、垂直偏移、模糊度、伸缩、颜色"><a href="#水平偏移、垂直偏移、模糊度、伸缩、颜色" class="headerlink" title="水平偏移、垂直偏移、模糊度、伸缩、颜色"></a>水平偏移、垂直偏移、模糊度、伸缩、颜色</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">box-shadow: (inset) 0px 0px 0px 0px <span class="comment">#off</span></span><br><span class="line">box-shadow: 0px 0px 10px red, inset 0px 0px 10px red;</span><br></pre></td></tr></table></figure>
 <h2 id="炫彩的圆，背景黑色"><a href="#炫彩的圆，背景黑色" class="headerlink" title="炫彩的圆，背景黑色"></a>炫彩的圆，背景黑色</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  left: calc(50% - 150px);</span><br><span class="line">  top: calc(50% - 150px);</span><br><span class="line">  width: 300px;</span><br><span class="line">  height: 300px;</span><br><span class="line">  border-radius: 50%;</span><br><span class="line">  box-shadow: inset 0px 0px 50px <span class="comment">#fff,</span></span><br><span class="line">              inset 10px 0px 80px <span class="comment">#f0f,</span></span><br><span class="line">              inset -10px 0px 80px <span class="comment">#0ff,</span></span><br><span class="line">              inset 10px 0px 300px <span class="comment">#f0f,</span></span><br><span class="line">              inset -10px 0px 300px <span class="comment">#0ff,</span></span><br><span class="line">              0px 0px 50px <span class="comment">#fff,</span></span><br><span class="line">              -10px 0 80px <span class="comment">#f0f,</span></span><br><span class="line">              10px 0 80px <span class="comment">#0ff;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="小太阳模糊效果"><a href="#小太阳模糊效果" class="headerlink" title="小太阳模糊效果"></a>小太阳模糊效果</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  left: calc(50% - 25px);</span><br><span class="line">  top: calc(50% - 25px);</span><br><span class="line">  width: 50px;</span><br><span class="line">  height: 50px;</span><br><span class="line">  background-color: <span class="comment">#fff;</span></span><br><span class="line">  border-radius: 50%;</span><br><span class="line">  box-shadow: 0px 0px 100px 50px <span class="comment">#fff,</span></span><br><span class="line">              0px 0px 250px 125px <span class="comment">#f20;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="小太阳模糊效果"><a href="#小太阳模糊效果" class="headerlink" title="小太阳模糊效果"></a>小太阳模糊效果</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  left: calc(50% - 25px);</span><br><span class="line">  top: calc(50% - 25px);</span><br><span class="line">  width: 50px;</span><br><span class="line">  height: 50px;</span><br><span class="line">  background-color: <span class="comment">#fff;</span></span><br><span class="line">  border-radius: 50%; </span><br><span class="line">  box-shadow: 0px 0px 100px 50px <span class="comment">#fff,</span></span><br><span class="line">              0px 0px 250px 125px <span class="comment">#f20;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="background"><a href="#background" class="headerlink" title="background"></a>background</h1><h2 id="background-image"><a href="#background-image" class="headerlink" title="background-image"></a>background-image</h2><h3 id="支持的参数"><a href="#支持的参数" class="headerlink" title="支持的参数"></a>支持的参数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">background-image: url()  <span class="comment">#图片路径</span></span><br><span class="line">background-image: linear-gradient(red, green); 线性渐变</span><br><span class="line">background-image: radial-gradient() 镜像渐变</span><br></pre></td></tr></table></figure>
 <ul>
 <li>background-image: linear-gradient(red, green);<br>to right、to top right等方向随意搭配</li>
@@ -548,7 +548,7 @@
               
                 <a href="/riceBlog/archives/">
               
-                  <span class="site-state-item-count">66</span>
+                  <span class="site-state-item-count">69</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -559,7 +559,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/riceBlog/categories/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -570,7 +570,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/riceBlog/tags/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
