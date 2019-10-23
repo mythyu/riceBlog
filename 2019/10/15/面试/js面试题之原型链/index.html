@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="基础知识 所有的对象都是通过函数()```创建的，该函数叫做构造函数1234567891.函数可以产生对象2.所有对象都是靠函数产生的- 函数也是一个对象，它是通过```new Function```创建的- 对象赋值给变量后，变量中保存的是地址，地址指向对象所在内存# 原型原型的本质：对象- 所有的**函数**都有原型属性```prototype  默认情况下，12345prototype中默">
+<meta name="description" content="基础知识 所有的对象都是通过new 函数()创建的，该函数叫做构造函数1.函数可以产生对象2.所有对象都是靠函数产生的  函数也是一个对象，它是通过new Function创建的  对象赋值给变量后，变量中保存的是地址，地址指向对象所在内存  原型原型的本质：对象  所有的函数都有原型属性prototype 默认情况下，prototype是一个Object对象prototype中默认包含一个属性">
 <meta name="keywords" content="面试题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js面试题之原型链">
 <meta property="og:url" content="http://yoursite.com/2019/10/15/面试/js面试题之原型链/index.html">
 <meta property="og:site_name" content="riceCK">
-<meta property="og:description" content="基础知识 所有的对象都是通过函数()```创建的，该函数叫做构造函数1234567891.函数可以产生对象2.所有对象都是靠函数产生的- 函数也是一个对象，它是通过```new Function```创建的- 对象赋值给变量后，变量中保存的是地址，地址指向对象所在内存# 原型原型的本质：对象- 所有的**函数**都有原型属性```prototype  默认情况下，12345prototype中默">
+<meta property="og:description" content="基础知识 所有的对象都是通过new 函数()创建的，该函数叫做构造函数1.函数可以产生对象2.所有对象都是靠函数产生的  函数也是一个对象，它是通过new Function创建的  对象赋值给变量后，变量中保存的是地址，地址指向对象所在内存  原型原型的本质：对象  所有的函数都有原型属性prototype 默认情况下，prototype是一个Object对象prototype中默认包含一个属性">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/riceCk/riceBlog/master/images/原型链.png">
-<meta property="og:updated_time" content="2019-10-16T08:12:22.097Z">
+<meta property="og:updated_time" content="2019-10-16T08:18:19.808Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js面试题之原型链">
-<meta name="twitter:description" content="基础知识 所有的对象都是通过函数()```创建的，该函数叫做构造函数1234567891.函数可以产生对象2.所有对象都是靠函数产生的- 函数也是一个对象，它是通过```new Function```创建的- 对象赋值给变量后，变量中保存的是地址，地址指向对象所在内存# 原型原型的本质：对象- 所有的**函数**都有原型属性```prototype  默认情况下，12345prototype中默">
+<meta name="twitter:description" content="基础知识 所有的对象都是通过new 函数()创建的，该函数叫做构造函数1.函数可以产生对象2.所有对象都是靠函数产生的  函数也是一个对象，它是通过new Function创建的  对象赋值给变量后，变量中保存的是地址，地址指向对象所在内存  原型原型的本质：对象  所有的函数都有原型属性prototype 默认情况下，prototype是一个Object对象prototype中默认包含一个属性">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/riceCk/riceBlog/master/images/原型链.png">
 
 
@@ -347,12 +347,21 @@
       
         <p><img src="https://raw.githubusercontent.com/riceCk/riceBlog/master/images/原型链.png" alt="原型链"></p>
 <h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><ul>
-<li><p>所有的对象都是通过<figure class="highlight plain"><figcaption><span>函数()```创建的，该函数叫做构造函数</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1.函数可以产生对象</span><br><span class="line">2.所有对象都是靠函数产生的</span><br><span class="line"></span><br><span class="line">- 函数也是一个对象，它是通过```new Function```创建的</span><br><span class="line">- 对象赋值给变量后，变量中保存的是地址，地址指向对象所在内存</span><br><span class="line"></span><br><span class="line"># 原型</span><br><span class="line">原型的本质：对象</span><br><span class="line">- 所有的**函数**都有原型属性```prototype</span><br></pre></td></tr></table></figure></p>
+<li><p>所有的对象都是通过<code>new 函数()</code>创建的，该函数叫做构造函数<br>1.函数可以产生对象<br>2.所有对象都是靠函数产生的</p>
 </li>
-<li><p>默认情况下，<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">prototype中默认包含一个属性：constructor,该属性指向函数对象本身</span><br><span class="line"></span><br><span class="line"># 隐私原型</span><br><span class="line">- 所有的对象都有隐式原型```_proto```属性</span><br><span class="line">- 隐式原型是一个对象，指向创建该对象的构造函数的原型```prototype</span><br></pre></td></tr></table></figure></p>
+<li><p>函数也是一个对象，它是通过<code>new Function</code>创建的</p>
 </li>
-<li><p>在查找对象成员时，若对象本身没有该成员，则会到隐式原型中查找</p>
-</li>
+<li>对象赋值给变量后，变量中保存的是地址，地址指向对象所在内存</li>
+</ul>
+<h1 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h1><p>原型的本质：对象</p>
+<ul>
+<li>所有的<strong>函数</strong>都有原型属性<code>prototype</code></li>
+<li>默认情况下，<code>prototype</code>是一个Object对象<br>prototype中默认包含一个属性：constructor,该属性指向函数对象本身</li>
+</ul>
+<h1 id="隐私原型"><a href="#隐私原型" class="headerlink" title="隐私原型"></a>隐私原型</h1><ul>
+<li>所有的对象都有隐式原型<code>_proto</code>属性</li>
+<li>隐式原型是一个对象，指向创建该对象的构造函数的原型<code>prototype</code></li>
+<li>在查找对象成员时，若对象本身没有该成员，则会到隐式原型中查找</li>
 </ul>
 <blockquote>
 <p>隐式原型和原型出现的根本原因：JS没有记录类型的元数据，因此，js只能通过对象的隐式原型找到创建它的函数的原型，从而确认其类型</p>
@@ -407,8 +416,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/riceBlog/2019/11/08/软考/第二章_操作系统基本原理/" rel="prev" title="第二章_操作系统基本原理">
-                第二章_操作系统基本原理 <i class="fa fa-chevron-right"></i>
+              <a href="/riceBlog/2019/10/16/面试/js面试题之事件循环/" rel="prev" title="js面试题之事件循环">
+                js面试题之事件循环 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -500,7 +509,7 @@
               
                 <a href="/riceBlog/archives/">
               
-                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -571,7 +580,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基础知识"><span class="nav-number">1.</span> <span class="nav-text">基础知识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原型链"><span class="nav-number">2.</span> <span class="nav-text">原型链</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基础知识"><span class="nav-number">1.</span> <span class="nav-text">基础知识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原型"><span class="nav-number">2.</span> <span class="nav-text">原型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#隐私原型"><span class="nav-number">3.</span> <span class="nav-text">隐私原型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原型链"><span class="nav-number">4.</span> <span class="nav-text">原型链</span></a></li></ol></div>
             
 
           </div>
